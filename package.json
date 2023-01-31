@@ -8,8 +8,7 @@
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
     "start:dev": "webpack-dev-server --mode development --open",
-    "build:dev": "rimraf dist && webpack --config webpack.dev.js",
-    "build:prod":"rimraf dist && webpack --config webpack.prod.js"
+    "build": "rimraf dist && webpack --mode development"
   },
   "author": "",
   "license": "ISC",

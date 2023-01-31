@@ -4,11 +4,13 @@ const basePath = __dirname;
 const TsconfigPathsPLugin = require("tsconfig-paths-webpack-plugin")
 
 module.exports = {
-  mode: "production",
   context: path.join(basePath, "src"),
   resolve: {
     extensions: [".js", ".ts", ".tsx"],
     plugins:[new TsconfigPathsPLugin()],
+    alias: {
+      '@':  path.join(basePath, "src"),
+    },
   },
   entry: {
     app: ["./index.tsx", "./global-css/styles.css"],

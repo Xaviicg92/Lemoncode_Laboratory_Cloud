@@ -1,14 +1,19 @@
 {
-  "name": "react-example",
+  "name": "04-boilerplate-front",
   "version": "1.0.0",
-  "description": "",
+  "description": "Member project",
   "main": "index.js",
   "scripts": {
     "start": "run-p -l type-check:watch start:dev",
+    "start:dev": "webpack serve --config ./config/webpack/dev.js",
+    "build": "run-p -l type-check build:prod",
+    "build:prod": "npm run clean && webpack --config ./config/webpack/prod.js",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
-    "start:dev": "webpack-dev-server --mode development --open",
-    "build": "rimraf dist && webpack --mode development"
+    "clean": "rimraf dist",
+    "test": "jest -c ./config/test/jest.js --verbose",
+    "test:watch": "npm run test -- --watchAll -i --no-cache",
+    "build:dev": "npm run clean && webpack --config ./config/webpack/dev.js"
   },
   "author": "",
   "license": "ISC",
